@@ -70,3 +70,21 @@ npm install
 npm start
 ```
 Project is running on port 500 -> http://localhost:5000/
+
+### Referinte: 
+1. https://firebase.google.com/docs/firestore
+2. https://firebase.google.com/docs/auth
+3. https://www.npmjs.com/package/bcrypt
+4. https://www.npmjs.com/package/axios
+5. https://www.npmjs.com/package/express
+
+### Capturi de ecran
+#### Autentificare 
+![Autentificare](https://drive.google.com/file/d/1f8OrOMrIaDA97fVzD5GcmGaInlZIp2IW/view?usp=sharing)
+
+#### Wishlist 
+![Wishlist](https://drive.google.com/file/d/1wEXkgP3CfPxTRBzXBq5puUe58NA8rvO6/view?usp=sharing)
+
+#### Adaugare articol
+![Adaugare](https://drive.google.com/file/d/1x_Q5U2ylLs7wB5CjdqPAeMVGHwc1UTQv/view?usp=sharing)
+
