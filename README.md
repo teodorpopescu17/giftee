@@ -1,16 +1,16 @@
 # giftee
 
-#### Introducere 
+### Introducere 
 Giftee este un Single Page Application, realizat cu ajutorul Vue JS si are ca principal obiectiv construirea si partajarea listelor de dorinte. 
 
-#### Descriere problemă
+### Descriere problemă
 Giftee este o aplicatie web ce vine in ajutorul persoanelor ce isi doresc sa isi organizeze lista de dorinte in preajma zilei de nastere sau a sarbatorilor. Pe langa aceasta functionalitate, Giftee ofera si posibilitatea de partajare, intr-un mod foarte rapid, a tuturor articolelor adaugate in wishlist. 
 
 Acest lucru se intampla intr-un mod fluid, fiecare utilizator avand propriul cont, unde isi pot edita lista de dorinte, respectiv genera link-ul de partajare. Autentificarea se face intr-un mod simplu, in baza emailului si a parolei.
 
 Articolele pot fi adaugate din cadrul unei liste comune de obiecte, iar in cazul in care acestea nu pot fi gasite, adaugarea poate fi facuta chiar de utilizator. 
 
-#### Descriere API 
+### Descriere API 
 Pentru realizarea acestei aplicatii, au fost utilizate doua API-uri oferite de Firebase:
 ##### 1. Cloud Firestore
 Cloud Firestore este serviciul oferit de Google, ce pune la dispozitie utilizatorilor o baza de date in Cloud. 
@@ -19,7 +19,7 @@ In cadrul proiectului, Cloud Firestore a fost utilizat pentru stocarea persisten
 ##### 2. Firebase Authentication
 Dupa cum o sugereaza si numele, Firebase Authentication este serviciul care ofera posibilitatea de autentificare a utilizatorilor. Aceasta gestioneaza utilizatorii noi, stocarea lor in baza de date, dar si autentificarea utilizatorilor existenti.
 
-#### Flux de date
+### Flux de date
 Utilizatorul interactioneaza pentru prima data cu aplicatia in momentul autentificarii. Daca acesta nu are deja un cont, isi poate crea unul pe baza unui email, a numelui si a unei parole. In monmentul crearii contului, parola este stocata in baza de data in mod securizat  cu ajutorul *bcrypt*.
 Dupa autentificare, va fi afisata pagina cu lista de dorinte a utilizatorului, care initial va fi goala. Aceasta poate fi populata accesand butonul adauga. 
 Butonul adauga va deschide o lista comuna cu obiecte deja existente in baza de date, de unde utilizatorul isi poate alege. In cazul in care nimic existe nu se pliaza pe dorintele utilizatorului, acesta poate adauga el insusi obiectul dorit. 
