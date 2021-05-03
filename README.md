@@ -86,5 +86,5 @@ Project is running on port 500 -> http://localhost:5000/
 ![Wishlist](https://drive.google.com/file/d/1wEXkgP3CfPxTRBzXBq5puUe58NA8rvO6/view?usp=sharing)
 
 #### Adaugare articol
-![Adaugare](https://drive.google.com/file/d/1x_Q5U2ylLs7wB5CjdqPAeMVGHwc1UTQv/view?usp=sharing)
+![Adaugare](https://github.com/teodorpopescu17/giftee/blob/main/add.png)
 
