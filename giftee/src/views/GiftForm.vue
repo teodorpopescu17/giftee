@@ -51,6 +51,7 @@ export default {
     buildItemFromForm() {
       if(!this.name || !this.url || !this.category || this.category==="Choose category" || !this.price || !this.type || this.type==="Choose type") {
         this.error="Fill all fields!"
+        
         return;
       }
       return {
