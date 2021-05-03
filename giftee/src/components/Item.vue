@@ -85,6 +85,7 @@ export default {
 
     .ItemC { 
         @include flex-column(flex-start);
+        overflow: hidden;
         width: auto;
     }
     

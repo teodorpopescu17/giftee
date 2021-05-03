@@ -1,5 +1,8 @@
 const path = require('path');
 var { db } = require(path.join(__dirname, '../firebaseConfig/database'));
+const axios = require('axios');
+const faker = require('faker');
+
 
 const getItems = async function (req, res) {
   let items = [];
@@ -21,7 +24,16 @@ const getItem = async(req, res) => {
 }
 
 const addItem = async(req, res) => {
-  let item = req.body.newItem;
+  let item = {
+    id: faker.commerce.productName().replaceAll(" ", "") + new Date().toJSON().slice(0,10).replace(/-/g,''),
+    name: faker.commerce.productName(), 
+    url: faker.internet.url(), 
+    category: faker.commerce.department(), 
+    price: faker.commerce.price(), 
+    type: "Physic"
+  };
+
+  // let item = req.body.newItem;
   console.log(item)
   await db.collection("items").doc(item.id).set({...item})
   .then(function() {
