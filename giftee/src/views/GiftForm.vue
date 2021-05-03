@@ -1,4 +1,4 @@
-<template>
+<template>  
   <div class="giftFormC">
     <h1> Giftee </h1>
     <button class="back" @click="goBack"> &lt; Back to your wishlist </button>
@@ -30,7 +30,6 @@
 
 <script>
 const axios = require('axios');
-
 export default {
   name: 'GiftForm',
   data() {
@@ -51,7 +50,6 @@ export default {
     buildItemFromForm() {
       if(!this.name || !this.url || !this.category || this.category==="Choose category" || !this.price || !this.type || this.type==="Choose type") {
         this.error="Fill all fields!"
-        
         return;
       }
       return {
@@ -74,7 +72,6 @@ export default {
       }
     }
   } 
-
 }
 </script>
 
@@ -85,14 +82,12 @@ export default {
     align-items: $alignment;
     flex-direction: column;
   }
-
   @mixin font-style($font-family, $font-weight, $font-size, $line-height) {
     line-height: $line-height;
     font-size: $font-size;
     font-weight: $font-weight;
     font-family: $font-family;
   }
-
   .giftFormC { 
     @include flex-column(center);
     justify-content: center;
@@ -106,19 +101,16 @@ export default {
     background-color: rgba(255,255,255, 0.5) ;
     padding: 1rem 2rem;
     margin-top: 3rem;
-
     h1 {
       @include font-style(inherit, 100, 1.5rem, normal);
       margin: 0.5rem;
     }
   }
-
   h1 {
     @include font-style(var(--sacramento-font), bold, 5rem, normal);
     color: var( --input-placeholder);
     margin-top: -15vh;
   }
-
   input, select {
     @include font-style(inherit, bold, 1rem, 1.5rem);
     padding: 0.5rem 1rem;
@@ -138,7 +130,6 @@ export default {
       border-color: var(--input-border-focus);
     }
   }
-
   button {
     @include font-style(inherit, 100, 1rem, normal);
     &:active {
@@ -151,36 +142,30 @@ export default {
     padding: 0.5rem 1rem; 
     margin-top: 1rem;
   }
-
   .meesage{
     color: green;
   }
-
   .error {
     color:red;
   }
-
     /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
     input, select {
       width: 60vw;
     }
   }
-
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     input, select {
       width: 50vw;
     }
   }
-
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     input, select {
       width: 40vw;
     }
   }
-
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     input, select {
