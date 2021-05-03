@@ -6,9 +6,10 @@
     <div class="table">
         <div class="add-section">
             <span> Didn't find it? </span>
-            <router-link to="/add-item" id="add-button">
+            <router-link to="/add-item" class="add-button">
               <button> <span>+</span> Add it! </button>
             </router-link>
+            <button @click="randomItem" class="add-button"> Surprise me! </button>
         </div>
         <div>
           <input placeholder="Search..." v-model="searchInput"/>
@@ -29,6 +30,7 @@
 
 import Item from '@/components/Item.vue';
 const axios = require('axios');
+const faker = require('faker');
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 
@@ -77,6 +79,23 @@ export default {
       }else {
         this.sort = "asc.";
         this.items.sort((a,b) => b.price - a.price )
+      }
+    }, 
+    randomItem() {
+      let newItem = {
+        id: faker.commerce.productName().replaceAll(" ", "") + new Date().toJSON().slice(0,10).replace(/-/g,''),
+        name: faker.commerce.productName(), 
+        url: faker.internet.url(), 
+        category: faker.commerce.department(), 
+        price: faker.commerce.price(), 
+        type: "Physic"
+      }; 
+      if(newItem) {
+        axios.post(`https://giftee-cards.herokuapp.com/wishlist/add`, {
+          newItem
+        })
+        .then( res => { this.response = res.data})
+        .catch( error => console.log(error.response.data))
       }
     }
   },
@@ -171,7 +190,7 @@ export default {
     border: none; 
   }
 
-  #add-button {
+  .add-button {
     button {
       padding: 0.2rem 0.5rem;
       float: right;

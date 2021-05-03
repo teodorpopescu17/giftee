@@ -3,10 +3,11 @@ var { db } = require(path.join(__dirname, '../firebaseConfig/database'));
 
 const getItems = async function (req, res) {
   let items = [];
-  await db.collection("items").get().then(function(querySnapshot) {
+  await db.collection("items")
+  .onSnapshot((querySnapshot) => {
     querySnapshot.forEach(function(doc) {
       items.push(doc.data());
-      });
+    });
   });
   res.send(items);
 }
