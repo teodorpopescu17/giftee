@@ -40,7 +40,7 @@ const addItem = async(req, res) => {
     res.send("Document successfully added!" + item.name);
   })
   .catch(function(error) {
-    res.send("Error adding document: ", error);
+    res.send("Error adding document: ", item);
   });
 }
   
