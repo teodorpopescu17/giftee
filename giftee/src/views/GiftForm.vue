@@ -65,7 +65,7 @@ export default {
     addItem: function() {
       let newItem = this.buildItemFromForm();
       if(newItem) {
-        axios.post(`https://giftee-wishes.herokuapp.com/wishlist/add`, {
+        axios.post(`https://giftee-cards.herokuapp.com/wishlist/add`, {
           newItem
         })
         .then( res => { this.response = res.data})
