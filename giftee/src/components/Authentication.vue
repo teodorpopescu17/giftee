@@ -123,6 +123,7 @@ export default {
     border-radius: 0.2rem;
     padding: 0.5rem 1rem; 
     margin: 1rem;
+    cursor: pointer;
   }
 
   span {

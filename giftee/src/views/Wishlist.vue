@@ -71,6 +71,7 @@ export default {
     axios.get(`https://giftee-cards.herokuapp.com/user/${userId.value}`)
     .then( res => {
       this.user = res.data;
+      console.log(this.user);
     })
     .catch( error => console.log(error.response.data))
   },
