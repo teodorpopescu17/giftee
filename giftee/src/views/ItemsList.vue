@@ -31,7 +31,6 @@ import Item from '@/components/Item.vue';
 const axios = require('axios');
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
-const faker = require('faker');
 
 export default {
   name: 'Authentication',
@@ -56,38 +55,6 @@ export default {
     const route = useRoute();
     const userId = computed(()=>route.params.id);
     this.id = userId.value;
-
-    this.items.push({
-      id: faker.commerce.productName().replaceAll(" ", "") + new Date().toJSON().slice(0,10).replace(/-/g,''),
-      name: faker.commerce.productName(), 
-      url: faker.internet.url(), 
-      category: faker.commerce.department() / 5, 
-      price:faker.commerce.price(), 
-      type: "Physic"
-    });
-
-    axios.get(`https://random-data-api.com/api/address/random_address`)
-    .then( res => {
-      this.items.push({
-        id: res.data.city.replaceAll(" ", "") +res.data.id,
-        name: `City break ${res.data.city}, ${res.data.country}`, 
-        url: faker.image.nature(), 
-        category: "Travel", 
-        price: faker.commerce.price()*10, 
-        type: "Voucher"
-      });
-    })
-    .catch( error => console.log(error.response.data));
-
-  
-    if(this.items.length > 0 ) {
-      this.items.forEach(item => {
-        axios
-        .post(`https://giftee-cards.herokuapp.com/wishlist/add`, {item})
-        .then( res => {console.log(res)})
-        .catch( error => console.log(error.response.data))
-      });
-    }
 
     axios.get(`https://giftee-cards.herokuapp.com/wishlist`)
     .then( res => this.items.push( ...res.data ))

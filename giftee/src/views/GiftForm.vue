@@ -24,12 +24,15 @@
       </select>
       <p class="meesage" v-if="response"> {{response}} </p>
       <button @click="addItem"> Add </button>
+      <button @click="addGift"> Random gift</button>
+      <button @click="addCity"> Random city break</button>
     </div>
   </div>
 </template>
 
 <script>
 const axios = require('axios');
+const faker = require('faker');
 export default {
   name: 'GiftForm',
   data() {
@@ -64,12 +67,30 @@ export default {
     addItem: function() {
       let newItem = this.buildItemFromForm();
       if(newItem) {
+        console.log("*", newItem);
         axios.post(`https://giftee-cards.herokuapp.com/wishlist/add`, {
           newItem
         })
         .then( res => { this.response = res.data})
         .catch( error => console.log(error.response.data))
       }
+    },
+    addGift: function() {
+      this.name = faker.commerce.productName(); 
+      this.url = faker.internet.url();
+      this.category = faker.commerce.department();
+      this.price = faker.commerce.price()/5;
+      this. type = "Physic";
+    },
+    addCity: function() {
+      axios.get(`https://random-data-api.com/api/address/random_address`)
+      .then( res => {
+        this.name= `City break ${res.data.city}, ${res.data.country}`;
+        this.url= faker.image.nature();
+        this.category= "Travel";
+        this.price= faker.commerce.price()*10;
+        this.type= "Voucher";
+      });
     }
   } 
 }
@@ -141,6 +162,7 @@ export default {
     border-radius: 0.2rem;
     padding: 0.5rem 1rem; 
     margin-top: 1rem;
+    cursor: pointer;
   }
   .meesage{
     color: green;
