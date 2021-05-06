@@ -1,18 +1,27 @@
-var express = require('express');
+
 const serveStatic = require('serve-static')
 var path = require('path');
+const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var userRouter = require('./routes/users');
 var itemsRouter = require('./routes/items');
 var history = require('connect-history-api-fallback');
-var cors = require('cors');
+var express = require('express')
+var cors = require('cors')
+var app = express()
+app.use(bodyParser.json())
 
-var app = express();
 app.use(cors());
+
 app.use(history());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(function(req, res, next) { 
+  res.header("Access-Control-Allow-Origin", "*"); 
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 
+  next(); 
+});
 app.use('/', serveStatic(path.join(__dirname, './dist')))
 // app.use(express.static(path.join(__dirname, './giftee/dist')));
 

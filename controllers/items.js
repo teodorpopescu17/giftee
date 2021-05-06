@@ -21,6 +21,7 @@ const getItem = async(req, res) => {
 }
 
 const addItem = async(req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let item = req.body.newItem;
   console.log(item)
   await db.collection("items").doc(item.id).set({...item})
