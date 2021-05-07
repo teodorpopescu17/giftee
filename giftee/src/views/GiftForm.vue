@@ -76,16 +76,21 @@ export default {
       }
     },
     addGift: function() {
-      this.name = faker.commerce.productName(); 
-      this.url = faker.internet.url();
-      this.category = faker.commerce.department();
-      this.price = faker.commerce.price()/5;
-      this. type = "Physic";
+      axios.get(`https://fakestoreapi.com/products/${Math.round(Math.random() *20)}`)
+      .then( res => {
+        let product = res.data;
+        console.log(product);
+        this.name= product.title.replace(/(.{15})..+/, "$1…");
+        this.url= product.image;
+        this.category= product.category;
+        this.price= product.price;
+        this.type= "Voucher";
+      });
     },
     addCity: function() {
       axios.get(`https://random-data-api.com/api/address/random_address`)
       .then( res => {
-        this.name= `City break ${res.data.city}, ${res.data.country}`;
+        this.name= `City break ${res.data.city}, ${res.data.country}`.replace(/(.{15})..+/, "$1…");
         this.url= faker.image.nature();
         this.category= "Travel";
         this.price= faker.commerce.price()*10;
