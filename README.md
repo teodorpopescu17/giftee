@@ -16,6 +16,8 @@ Pentru realizarea acestei aplicatii, au fost utilizate doua API-uri oferite de F
 Cloud Firestore este serviciul oferit de Google, ce pune la dispozitie utilizatorilor o baza de date in Cloud. 
 In cadrul proiectului, Cloud Firestore a fost utilizat pentru stocarea persistenta a articolelor, dar si a utilizatorilor. 
 
+![Firestore](https://github.com/teodorpopescu17/giftee/blob/main/firebase.png)
+
 ##### 2. Firebase Authentication
 Dupa cum o sugereaza si numele, Firebase Authentication este serviciul care ofera posibilitatea de autentificare a utilizatorilor. Aceasta gestioneaza utilizatorii noi, stocarea lor in baza de date, dar si autentificarea utilizatorilor existenti.
 
@@ -80,11 +82,11 @@ Project is running on port 500 -> http://localhost:5000/
 
 ### Capturi de ecran
 #### Autentificare 
-![Autentificare](https://drive.google.com/file/d/1f8OrOMrIaDA97fVzD5GcmGaInlZIp2IW/view?usp=sharing)
+![Autentificare](https://github.com/teodorpopescu17/giftee/blob/main/auth.png)
 
 #### Wishlist 
-![Wishlist](https://drive.google.com/file/d/1wEXkgP3CfPxTRBzXBq5puUe58NA8rvO6/view?usp=sharing)
+![Wishlist](https://github.com/teodorpopescu17/giftee/blob/main/wishlist.png)
 
 #### Adaugare articol
-![Adaugare](https://drive.google.com/file/d/1x_Q5U2ylLs7wB5CjdqPAeMVGHwc1UTQv/view?usp=sharing)
+![Adaugare](https://github.com/teodorpopescu17/giftee/blob/main/add.png)
 
