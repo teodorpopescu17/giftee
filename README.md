@@ -10,7 +10,7 @@ Acest lucru se intampla intr-un mod fluid, fiecare utilizator avand propriul con
 
 Articolele pot fi adaugate din cadrul unei liste comune de obiecte, iar in cazul in care acestea nu pot fi gasite, adaugarea poate fi facuta chiar de utilizator. 
 
-### Descriere API 
+### Servicii cloud 
 Pentru realizarea acestei aplicatii, au fost utilizate doua API-uri oferite de Firebase:
 ##### 1. Cloud Firestore
 Cloud Firestore este serviciul oferit de Google, ce pune la dispozitie utilizatorilor o baza de date in Cloud. 
@@ -20,6 +20,16 @@ In cadrul proiectului, Cloud Firestore a fost utilizat pentru stocarea persisten
 
 ##### 2. Firebase Authentication
 Dupa cum o sugereaza si numele, Firebase Authentication este serviciul care ofera posibilitatea de autentificare a utilizatorilor. Aceasta gestioneaza utilizatorii noi, stocarea lor in baza de date, dar si autentificarea utilizatorilor existenti.
+
+### REST APIs
+Pentru integrarea optiunii de cadouri aleatorii, au fost folosit doua API-uri: 
+##### 1. random-data-api
+Acest api este apelat cu ajutorul axios si aduce ca raspuns orase aleatorii. Este folosit in componenta de adaugare a unui cadou pentru generarea unei dorinte de tip Vacanta.
+
+##### 2. Fake store api
+Acest api este apelat cu ajutorul axios si aduce ca raspuns produse aleatorii. Este folosit in componenta de adaugare a unui cadou pentru generarea unei dorinte de tip obiect.
+
+Pe langa aceste doua API-uri, interactiunea cu baza de date se face printr-un server node, realizat cu express si apelat la randul sau prin axios. 
 
 ### Flux de date
 Utilizatorul interactioneaza pentru prima data cu aplicatia in momentul autentificarii. Daca acesta nu are deja un cont, isi poate crea unul pe baza unui email, a numelui si a unei parole. In monmentul crearii contului, parola este stocata in baza de data in mod securizat  cu ajutorul *bcrypt*.
